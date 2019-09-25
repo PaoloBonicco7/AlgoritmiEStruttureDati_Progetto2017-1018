@@ -1,0 +1,49 @@
+Ogni package corrisponde ad una libreria, ad ogni libreria è associata una classe di testing per testarne il funzionamento.
+
+Per eseguire l'applicazione della cartella Sort posizionarsi nella cartella Sort/src:
+
+compilare i file contenuti nel package sort:
+
+javac -d "../classes/" sort/*.java
+
+compilare i file contenuti nel package sum:
+
+javac -d "../classes/" sum/*.java
+
+compilare i file contenuti nel package sortrunner:
+
+javac -d "../classes/" sortrunner/*.java
+
+eseguire l'applicativo contenuto nel package sortrunner:
+
+java -cp "../classes/" sortrunner.UsageSort ../integers.csv ../sums.txt
+
+
+compilare i test per la libreria Sort:
+
+export CLASSPATH=../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar:
+
+javac -d "../classes/" sorttest/*.java
+
+  in alternativa:
+
+  javac -d "../classes/" -cp "../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar:" sorttest/*.java
+
+compilare i test per la libreria Sum:
+
+export CLASSPATH=../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar:
+
+javac -d "../classes/" sumtest/*.java
+
+  in alternativa:
+
+  javac -d "../classes/" -cp "../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar:" sumtest/*.java
+
+
+eseguire i test per la libreria Sort:
+
+java -cp "../classes/:../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar" org.junit.runner.JUnitCore sorttest.SortTests
+
+eseguire i test per la libreria Sum:
+
+java -cp "../classes/:../../Resources/java/JUnit/hamcrest-core-1.3.jar:../../Resources/java/JUnit/junit-4.12.jar" org.junit.runner.JUnitCore sumtest.SumTest
